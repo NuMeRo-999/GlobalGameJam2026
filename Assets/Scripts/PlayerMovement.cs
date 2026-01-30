@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private LayerMask groundLayer;
+    private SpriteMaskEffect spriteMaskEffect;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteMaskEffect = GetComponent<SpriteMaskEffect>();
     }
 
     void FixedUpdate()
@@ -45,5 +47,18 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+
+        // if (value.isPressed)
+        // {
+        //     spriteMaskEffect.StartMaskEffect();
+        //     spriteMaskEffect.DisableLayerMask(5f);
+        // }
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        print("Interact pressed");
+        spriteMaskEffect.StartMaskEffect();
+        spriteMaskEffect.DisableLayerMask(3f);
     }
 }
