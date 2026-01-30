@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4588745879341523491}
   - component: {fileID: 8433436985957825074}
   - component: {fileID: 7804035393594672647}
-  - component: {fileID: 8091696262670497648}
+  - component: {fileID: 7269825497741995236}
   - component: {fileID: 8331786579546017969}
   - component: {fileID: 4246484679812488627}
   m_Layer: 6
@@ -180,8 +180,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 3682151af12c3f24eb55865d9828b50c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -192,7 +192,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8091696262670497648
+--- !u!114 &7269825497741995236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,8 +204,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bdabea6d96977429fd4a6d54ab396a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
-  jumpForce: 10
+  maxMoveSpeed: 8
+  acceleration: 30
+  deceleration: 20
+  maxFallSpeed: 25
+  jumpInitialVelocity: 20
+  maxJumpHeight: 8
+  coyoteTime: 0.2
+  ceilingCheckDistance: 0.1
+  pushOffForce: 100
+  pushSmoothSpeed: 8
+  fallMultiplier: 4
+  lowJumpMultiplier: 10
+  groundCheckDistance: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
