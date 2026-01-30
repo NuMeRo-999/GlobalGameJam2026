@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7804035393594672647}
   - component: {fileID: 7269825497741995236}
   - component: {fileID: 8331786579546017969}
+  - component: {fileID: 4246484679812488627}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -234,6 +235,28 @@ MonoBehaviour:
   spriteMask: {fileID: 3300633272308508905}
   scaleSpeed: 120
   maxScale: 230
+  disableDelay: 5
+--- !u!114 &4246484679812488627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275748585600505372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d06a007d690c794894317d8eb7eb7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  MinHighMeter: 0
+  maxHighMeter: 100
+  currentHighMeter: 0
+  highMeterIncreaseRate: 10
+  damageLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  RespawnPoint: {fileID: 0}
+  hasMask: 0
 --- !u!1 &3300633272308508905
 GameObject:
   m_ObjectHideFlags: 0
