@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Check Settings")]
     [SerializeField] private float groundCheckDistance = 0.1f;
     [SerializeField] private LayerMask groundLayer;
+    private SpriteMaskEffect spriteMaskEffect;
 
     // --- Debug ---
     private bool wasGroundedLastFrame = false;
