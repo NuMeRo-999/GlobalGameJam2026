@@ -8,8 +8,6 @@ public class ShooterEnemy : MonoBehaviour
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private float projectileSpeed = 10f;
 
-    [Header("Direction")]
-    [SerializeField] private bool shootRight = true;
 
     private float nextFireTime;
 
@@ -31,7 +29,8 @@ public class ShooterEnemy : MonoBehaviour
         EnemyProjectile projectileScript = projectile.GetComponent<EnemyProjectile>();
         if (projectileScript != null)
         {
-            Vector2 direction = shootRight ? Vector2.right : Vector2.left;
+            // Shoot in the direction the enemy is facing (based on rotation)
+            Vector2 direction = transform.up;
             projectileScript.Initialize(direction, projectileSpeed);
         }
     }
@@ -41,8 +40,7 @@ public class ShooterEnemy : MonoBehaviour
         if (firePoint != null)
         {
             Gizmos.color = Color.red;
-            Vector3 direction = shootRight ? Vector3.right : Vector3.left;
-            Gizmos.DrawRay(firePoint.position, direction * 2f);
+            Gizmos.DrawRay(firePoint.position, transform.up * 2f);
         }
     }
 }
