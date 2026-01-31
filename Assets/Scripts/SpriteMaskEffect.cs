@@ -6,10 +6,15 @@ public class SpriteMaskEffect : MonoBehaviour
 {
     [SerializeField] private GameObject spriteMask;
     [SerializeField] private float scaleSpeed = 1f;
+    [SerializeField] private float descaleSpeedMultiplier = 2f;
     [SerializeField] private float maxScale = 230f;
+    [SerializeField] private float rotationSpeed = 50f;
     [SerializeField] private float disableDelay = 5f;
     private Vector3 initialScale;
     private VisionController visionController;
+    
+    private bool isHoldingKey = false;
+    private Coroutine currentScaleCoroutine;
 
     void Start()
     {
@@ -23,7 +28,23 @@ public class SpriteMaskEffect : MonoBehaviour
         spriteMask.SetActive(true);
         visionController.hasMask = true;
         spriteMask.transform.localScale = initialScale;
-        StartCoroutine(ScaleMaskUp(maxScale));
+        StopCurrentScaleCoroutine();
+        currentScaleCoroutine = StartCoroutine(ScaleMaskUp(maxScale));
+    }
+
+    public void StopMaskEffect()
+    {
+        StopCurrentScaleCoroutine();
+        currentScaleCoroutine = StartCoroutine(ScaleMaskDown(0f));
+    }
+
+    private void StopCurrentScaleCoroutine()
+    {
+        if (currentScaleCoroutine != null)
+        {
+            StopCoroutine(currentScaleCoroutine);
+            currentScaleCoroutine = null;
+        }
     }
 
     public void DisableLayerMask(float seconds)
@@ -36,18 +57,26 @@ public class SpriteMaskEffect : MonoBehaviour
     {
         Vector3 startScale = spriteMask.transform.localScale;
         Vector3 targetScale = new Vector3(targetScaleValue, targetScaleValue, targetScaleValue);
-        float duration = targetScaleValue / scaleSpeed;
+        float scaleRange = targetScaleValue - startScale.x;
+        float duration = scaleRange / scaleSpeed;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < duration && isHoldingKey)
         {
             elapsedTime += Time.deltaTime;
             float time = elapsedTime / duration;
             spriteMask.transform.localScale = Vector3.Lerp(startScale, targetScale, time);
+            //Añadir rotacion en Z
+            spriteMask.transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
             yield return null;
         }
 
-        spriteMask.transform.localScale = targetScale;
+        if (isHoldingKey)
+        {
+            spriteMask.transform.localScale = targetScale;
+        }
+        
+        currentScaleCoroutine = null;
     }
 
     // Disminuye su escala progresivamente
@@ -56,34 +85,56 @@ public class SpriteMaskEffect : MonoBehaviour
         Vector3 startScale = spriteMask.transform.localScale;
         Vector3 targetScale = new Vector3(targetScaleValue, targetScaleValue, targetScaleValue);
         float scaleRange = startScale.x - targetScaleValue;
-        float duration = scaleRange / scaleSpeed;
+        float descaleSpeed = scaleSpeed * descaleSpeedMultiplier;
+        float duration = scaleRange / descaleSpeed;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < duration && !isHoldingKey)
         {
             elapsedTime += Time.deltaTime;
             float time = elapsedTime / duration;
             spriteMask.transform.localScale = Vector3.Lerp(startScale, targetScale, time);
+            //Añadir rotacion en Z
+            spriteMask.transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
             yield return null;
         }
 
-        spriteMask.transform.localScale = targetScale;
-        spriteMask.SetActive(false);
+        if (!isHoldingKey)
+        {
+            spriteMask.transform.localScale = targetScale;
+            spriteMask.SetActive(false);
+            visionController.hasMask = false;
+        }
+        
+        currentScaleCoroutine = null;
     }
 
     private IEnumerator DisableLayerMaskAfterDelay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        StartCoroutine(ScaleMaskDown(0f));
-        visionController.hasMask = false;
+        isHoldingKey = false;
+        StopCurrentScaleCoroutine();
+        currentScaleCoroutine = StartCoroutine(ScaleMaskDown(0f));
     }
 
     public void OnPutMask(InputValue value)
     {
         if (value.isPressed)
         {
-            StartMaskEffect();
-            DisableLayerMask(disableDelay);
+            isHoldingKey = true;
+            spriteMask.SetActive(true);
+            visionController.hasMask = true;
+            StopCurrentScaleCoroutine();
+            currentScaleCoroutine = StartCoroutine(ScaleMaskUp(maxScale));
+        }
+        else
+        {
+            isHoldingKey = false;
+            if (spriteMask.activeSelf)
+            {
+                StopCurrentScaleCoroutine();
+                currentScaleCoroutine = StartCoroutine(ScaleMaskDown(0f));
+            }
         }
     }
 }
