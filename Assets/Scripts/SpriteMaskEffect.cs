@@ -9,16 +9,19 @@ public class SpriteMaskEffect : MonoBehaviour
     [SerializeField] private float maxScale = 230f;
     [SerializeField] private float disableDelay = 5f;
     private Vector3 initialScale;
+    private VisionController visionController;
 
     void Start()
     {
         initialScale = spriteMask.transform.localScale;
         spriteMask.SetActive(false);
+        visionController = GetComponent<VisionController>();
     }
 
     public void StartMaskEffect()
     {
         spriteMask.SetActive(true);
+        visionController.hasMask = true;
         spriteMask.transform.localScale = initialScale;
         StartCoroutine(ScaleMaskUp(maxScale));
     }
@@ -72,6 +75,7 @@ public class SpriteMaskEffect : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         StartCoroutine(ScaleMaskDown(0f));
+        visionController.hasMask = false;
     }
 
     public void OnPutMask(InputValue value)
