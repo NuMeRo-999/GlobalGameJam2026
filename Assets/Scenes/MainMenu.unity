@@ -223,6 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92e9cbf1ed364441a55b4c413ed8d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
+  transitionUI: {fileID: 0}
+  transitionDuration: 1
+  scaleMultiplier: 1.5
 --- !u!4 &52665872
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,7 +1089,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 52665871}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: LoadLevel1
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

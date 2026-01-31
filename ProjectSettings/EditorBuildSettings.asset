@@ -6,14 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level1.unity
-    guid: 362909af44aa2b041b65fbc6756f41e8
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c4e595ae57402df4d9b5731a57debca3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Demo1.unity
+    guid: 362909af44aa2b041b65fbc6756f41e8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Demo2.unity
+    guid: 4759d25425301a64297191689d5ea123
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: bbde61c777e88344a940973123760e04
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: abeecb5e855d2384cbcc3c40dd24453d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: 4dcef4e60bd29444ba4bc495cc40f143
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 7b789f729b6a58e4596f5c23bc9d4e1e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: 9b0a3d7192f1fb84f8e984541c57f759
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
