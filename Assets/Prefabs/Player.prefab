@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 7269825497741995236}
   - component: {fileID: 8331786579546017969}
   - component: {fileID: 4246484679812488627}
+  - component: {fileID: 1930194566945893776}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +189,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -212,7 +213,7 @@ MonoBehaviour:
   maxJumpHeight: 8
   coyoteTime: 0.2
   ceilingCheckDistance: 0.1
-  pushOffForce: 100
+  pushOffForce: 1
   pushSmoothSpeed: 8
   fallMultiplier: 4
   lowJumpMultiplier: 10
@@ -255,8 +256,20 @@ MonoBehaviour:
   damageLayers:
     serializedVersion: 2
     m_Bits: 256
-  RespawnPoint: {fileID: 0}
+  respawnPoint: {fileID: 0}
   hasMask: 0
+--- !u!114 &1930194566945893776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275748585600505372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2639277a5dd718b47a52dba75c09859f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &3300633272308508905
 GameObject:
   m_ObjectHideFlags: 0
