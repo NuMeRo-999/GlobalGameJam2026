@@ -13,15 +13,6 @@ public class VisionController : MonoBehaviour
 
     void Update()
     {
-        if (hasMask)
-        {
-            NormalTilemap.SetActive(false);
-            HighTilemap.SetActive(true);
-        }
-        else
-        {
-            NormalTilemap.SetActive(true);
-            // HighTilemap.SetActive(false);
-        }
+
     }
 }
