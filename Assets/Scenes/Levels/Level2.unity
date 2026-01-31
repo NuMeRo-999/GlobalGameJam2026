@@ -3521,9 +3521,61 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 231709906379702242, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 294516318539160368, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 410872916738185987, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 575305025681503270, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 958785029667765709, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403458937474978255, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245716858474018734, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751094864830420916, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876594894620948490, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557293975870139149, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5783292332563323366, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6100292506407746542, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
       propertyPath: m_Name
       value: MovingPlatform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469943696411016209, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066410791090247918, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7175808492578664672, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3565,6 +3617,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7267786515237831665, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7521687053512918509, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
       propertyPath: waypoints.Array.size
       value: 1
@@ -3573,6 +3629,18 @@ PrefabInstance:
       propertyPath: 'waypoints.Array.data[0]'
       value: 
       objectReference: {fileID: 56094042}
+    - target: {fileID: 8280876526566908007, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674257031924621766, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023858480340825753, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4540428203484717465, guid: 210ad5633fcbf4546bf91d8d4ca3f305, type: 3}
