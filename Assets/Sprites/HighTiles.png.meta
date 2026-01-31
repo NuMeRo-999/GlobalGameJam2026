@@ -436,7 +436,7 @@ TextureImporter:
       name: HighTiles_15
       rect:
         serializedVersion: 2
-        x: 384
+        x: 256
         y: 0
         width: 128
         height: 128
@@ -458,7 +458,7 @@ TextureImporter:
       name: HighTiles_16
       rect:
         serializedVersion: 2
-        x: 512
+        x: 384
         y: 0
         width: 128
         height: 128
@@ -472,6 +472,28 @@ TextureImporter:
       bones: []
       spriteID: 36d940fafe3fcef45a6f633b1cb27ff9
       internalID: 1384229960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighTiles_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c79b2c12b6d54c946abfdb2285d7e53e
+      internalID: 213927137
       vertices: []
       indices: 
       edges: []
@@ -501,6 +523,7 @@ TextureImporter:
       HighTiles_14: 1084647351
       HighTiles_15: 255061968
       HighTiles_16: 1384229960
+      HighTiles_17: 213927137
       HighTiles_2: -469236956
       HighTiles_3: 1060322521
       HighTiles_4: -1002805369

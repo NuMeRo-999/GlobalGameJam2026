@@ -376,6 +376,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SpritesheetNormal_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a141a94f7c334c04dbdd1144166dcbe4
+      internalID: 5939545378244103045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetNormal_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ec2dac262046d49b0b9c9e5ec5489d
+      internalID: -1943963953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetNormal_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7b633d6a8b0ac45b60f8baaf1b0b9b
+      internalID: -1837813493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -397,6 +463,8 @@ TextureImporter:
       SpritesheetNormal_10: 757560556
       SpritesheetNormal_11: -2086942761
       SpritesheetNormal_12: 994784496
+      SpritesheetNormal_13: -1943963953
+      SpritesheetNormal_14: -1837813493
       SpritesheetNormal_2: 414119910
       SpritesheetNormal_3: -600166599
       SpritesheetNormal_4: -1403268334
