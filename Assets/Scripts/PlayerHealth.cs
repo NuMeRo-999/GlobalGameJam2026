@@ -13,23 +13,24 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private LayerMask damageLayers;
     [SerializeField] private Transform respawnPoint;
 
-    public bool hasMask = false;
+    private VisionController visionController;
 
     void Start()
     {
         currentHighMeter = MinHighMeter;
+        visionController = GetComponent<VisionController>();
     }
 
     void Update()
     {
-        if (hasMask)
+        if (visionController.hasMask)
         {
             currentHighMeter += highMeterIncreaseRate * Time.deltaTime;
 
             if (currentHighMeter >= maxHighMeter)
             {
                 currentHighMeter = maxHighMeter;
-                hasMask = false;
+                visionController.hasMask = false;
                 Die();
             }
 
@@ -79,7 +80,7 @@ public class PlayerHealth : MonoBehaviour
     {
         transform.position = respawnPoint.position;
         currentHighMeter = 0;
-        hasMask = false;
+        visionController.hasMask = false;
         Debug.Log("Player has respawned.");
     }
 
