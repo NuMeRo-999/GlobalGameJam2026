@@ -70,7 +70,7 @@ public class PlayerHealth : MonoBehaviour
         return currentHighMeter / maxHighMeter;
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("Player has died.");
         Respawn();
