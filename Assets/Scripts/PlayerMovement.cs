@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private SpriteMaskEffect spriteMaskEffect;
 
+
     // --- Debug ---
     private bool wasGroundedLastFrame = false;
     private bool hasJumpedSinceLastGrounded = false;
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        //animator = visualEffects.GetComponent<Animator>();
+        animator = this.GetComponent<Animator>();
         float gravityForJump = -(jumpInitialVelocity * jumpInitialVelocity) / (2 * maxJumpHeight);
         rb.gravityScale = gravityForJump / Physics2D.gravity.y;
 
@@ -144,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
     private void JumpStart()
     {
         isJumping = true;
-        //animator.SetTrigger("Jump");
+        animator.SetTrigger("Jump");
         jumpTimeCounter = maxJumpHeight / jumpInitialVelocity;
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpInitialVelocity);
         coyoteTimeCounter = 0f;
