@@ -8,8 +8,11 @@ public class ShooterEnemy : MonoBehaviour
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private float projectileSpeed = 10f;
 
+    [SerializeField] private Animator animator;
+
 
     private float nextFireTime;
+
 
     void Update()
     {
@@ -32,6 +35,7 @@ public class ShooterEnemy : MonoBehaviour
             // Shoot in the direction the enemy is facing (based on rotation)
             Vector2 direction = transform.up;
             projectileScript.Initialize(direction, projectileSpeed);
+            animator.SetTrigger("Shoot");
         }
     }
 
