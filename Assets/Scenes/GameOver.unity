@@ -828,7 +828,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 8
+  m_CharacterLimit: 15
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -2104,7 +2104,7 @@ MonoBehaviour:
   submitButton: {fileID: 795861709}
   leaderboardButton: {fileID: 1543407302}
   leaderboardSceneName: Leaderboard
-  maxNameLength: 8
+  maxNameLength: 15
 --- !u!1 &1743717387
 GameObject:
   m_ObjectHideFlags: 0

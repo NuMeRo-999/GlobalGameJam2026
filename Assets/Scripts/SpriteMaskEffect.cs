@@ -19,12 +19,12 @@ public class SpriteMaskEffect : MonoBehaviour
 
     void Awake()
     {
+        initialScale = spriteMask.transform.localScale;
         visionController = GetComponent<VisionController>();
     }
 
     void Start()
     {
-        initialScale = spriteMask.transform.localScale;
         spriteMask.SetActive(false);
     }
 

@@ -7,11 +7,13 @@ public class SpeedrunTimer : MonoBehaviour
 
     private float currentTime;
     private bool isRunning;
+    private bool isPaused;
     private string startSceneName = "Demo1"; // Scene where timer starts
     private string endSceneName = "GameOver"; // Scene where timer stops
 
     public float CurrentTime => currentTime;
     public bool IsRunning => isRunning;
+    public bool IsPaused => isPaused;
 
     void Awake()
     {
@@ -37,7 +39,7 @@ public class SpeedrunTimer : MonoBehaviour
 
     void Update()
     {
-        if (isRunning)
+        if (isRunning && !isPaused)
         {
             currentTime += Time.deltaTime;
         }
@@ -55,6 +57,8 @@ public class SpeedrunTimer : MonoBehaviour
         else if (scene.name == endSceneName && isRunning)
         {
             StopTimer();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -75,6 +79,19 @@ public class SpeedrunTimer : MonoBehaviour
     {
         currentTime = 0f;
         isRunning = false;
+        isPaused = false;
+    }
+
+    public void PauseTimer()
+    {
+        isPaused = true;
+        Debug.Log("Speedrun Timer Paused");
+    }
+
+    public void ResumeTimer()
+    {
+        isPaused = false;
+        Debug.Log("Speedrun Timer Resumed");
     }
 
     public string GetFormattedTime()

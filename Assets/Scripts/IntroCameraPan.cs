@@ -82,6 +82,12 @@ public class IntroCameraPan : MonoBehaviour
         IsIntroPlaying = true;
         OnIntroStarted?.Invoke();
 
+        // Pausar el timer de speedrun durante la intro
+        if (SpeedrunTimer.Instance != null)
+        {
+            SpeedrunTimer.Instance.PauseTimer();
+        }
+
         // Desactivar movimiento del jugador durante la intro
         if (playerMovement != null)
         {
@@ -150,6 +156,12 @@ public class IntroCameraPan : MonoBehaviour
     {
         IsIntroPlaying = false;
 
+        // Reanudar el timer de speedrun
+        if (SpeedrunTimer.Instance != null)
+        {
+            SpeedrunTimer.Instance.ResumeTimer();
+        }
+
         // Cambiar prioridades para que la cámara del jugador tome el control
         if (introCamera != null && playerFollowCamera != null)
         {
@@ -166,8 +178,7 @@ public class IntroCameraPan : MonoBehaviour
         // Desactivar squareMask al terminar la intro
         if (squareMask != null)
         {
-            // Esacala el cuadrado a 0 suavemente antes de desactivarlo
-            StartCoroutine(ScaleDownAndDeactivateSquareMask());
+            Destroy(squareMask);
         }
 
         // Reactivar el highMeter
@@ -187,23 +198,6 @@ public class IntroCameraPan : MonoBehaviour
         Debug.Log("Intro finished - Player has control");
     }
 
-    private IEnumerator ScaleDownAndDeactivateSquareMask()
-    {
-        float duration = 1f; // Duración de la animación en segundos
-        Vector3 initialScale = squareMask.transform.localScale;
-        Vector3 targetScale = Vector3.zero;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            squareMask.transform.localScale = Vector3.Lerp(initialScale, targetScale, elapsed / duration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        squareMask.transform.localScale = targetScale;
-        Destroy(squareMask);
-    }
 
     // Método para saltar la intro (por ejemplo con un botón)
     public void SkipIntro()
