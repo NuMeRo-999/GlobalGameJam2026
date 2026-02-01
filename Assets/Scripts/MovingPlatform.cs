@@ -15,6 +15,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private Color pathColor = Color.yellow;
     [SerializeField] private float pathWidth = 0.1f;
 
+    public bool scaleOnDirectionChange = false;
+
     private Rigidbody2D rb;
     private LineRenderer lineRenderer;
     private int currentTargetIndex = 1;
@@ -81,6 +83,7 @@ public class MovingPlatform : MonoBehaviour
                 lineRenderer.SetPosition(waypoints.Length, waypoints[0].position);
             }
         }
+
     }
 
     private void FixedUpdate()
@@ -92,6 +95,14 @@ public class MovingPlatform : MonoBehaviour
         Vector2 targetPosition = waypoints[currentTargetIndex].position;
         Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.fixedDeltaTime);
         Vector2 platformMovement = newPosition - currentPosition;
+
+        // Cambiar escala según dirección horizontal
+        if (scaleOnDirectionChange && platformMovement.x != 0)
+        {
+            Vector3 currentScale = transform.localScale;
+            float targetScaleX = platformMovement.x > 0 ? Mathf.Abs(currentScale.x) : -Mathf.Abs(currentScale.x);
+            transform.localScale = new Vector3(targetScaleX, currentScale.y, currentScale.z);
+        }
 
         rb.MovePosition(newPosition);
 
