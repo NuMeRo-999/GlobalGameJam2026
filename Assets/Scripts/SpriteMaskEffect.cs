@@ -151,6 +151,8 @@ public class SpriteMaskEffect : MonoBehaviour
         {
             isHoldingKey = true;
             spriteMask.SetActive(true);
+            this.GetComponent<Animator>().SetTrigger("PutMask");
+            this.GetComponent<Animator>().SetBool("mask", true);
             visionController.hasMask = true;
             StopCurrentScaleCoroutine();
             currentScaleCoroutine = StartCoroutine(ScaleMaskUp(maxScale));
@@ -160,6 +162,8 @@ public class SpriteMaskEffect : MonoBehaviour
             isHoldingKey = false;
             if (spriteMask.activeSelf)
             {
+                this.GetComponent<Animator>().SetTrigger("RemoveMask");
+                this.GetComponent<Animator>().SetBool("mask", false);
                 StopCurrentScaleCoroutine();
                 currentScaleCoroutine = StartCoroutine(ScaleMaskDown(0f));
             }
