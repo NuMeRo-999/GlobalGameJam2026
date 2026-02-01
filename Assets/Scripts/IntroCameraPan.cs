@@ -166,7 +166,8 @@ public class IntroCameraPan : MonoBehaviour
         // Desactivar squareMask al terminar la intro
         if (squareMask != null)
         {
-            squareMask.SetActive(false);
+            // Esacala el cuadrado a 0 suavemente antes de desactivarlo
+            StartCoroutine(ScaleDownAndDeactivateSquareMask());
         }
 
         // Reactivar el highMeter
@@ -184,6 +185,24 @@ public class IntroCameraPan : MonoBehaviour
         OnIntroFinished?.Invoke();
 
         Debug.Log("Intro finished - Player has control");
+    }
+
+    private IEnumerator ScaleDownAndDeactivateSquareMask()
+    {
+        float duration = 1f; // Duración de la animación en segundos
+        Vector3 initialScale = squareMask.transform.localScale;
+        Vector3 targetScale = Vector3.zero;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            squareMask.transform.localScale = Vector3.Lerp(initialScale, targetScale, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        squareMask.transform.localScale = targetScale;
+        Destroy(squareMask);
     }
 
     // Método para saltar la intro (por ejemplo con un botón)
