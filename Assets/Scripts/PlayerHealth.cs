@@ -14,16 +14,22 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
 
     private VisionController visionController;
+    private bool isInIntroMode = false;
+
+    void Awake()
+    {
+        visionController = GetComponent<VisionController>();
+    }
 
     void Start()
     {
         currentHighMeter = MinHighMeter;
-        visionController = GetComponent<VisionController>();
     }
 
     void Update()
     {
-        if (visionController.hasMask)
+        // No aumentar highMeter durante la intro
+        if (visionController.hasMask && !isInIntroMode)
         {
             currentHighMeter += highMeterIncreaseRate * Time.deltaTime;
 
@@ -36,6 +42,22 @@ public class PlayerHealth : MonoBehaviour
 
             Debug.Log("High Meter: " + Mathf.RoundToInt(currentHighMeter));
         }
+    }
+
+    /// <summary>
+    /// Activa o desactiva el modo intro. Durante la intro, el highMeter no aumenta.
+    /// </summary>
+    public void SetIntroMode(bool introMode)
+    {
+        isInIntroMode = introMode;
+    }
+
+    /// <summary>
+    /// Indica si el jugador está en modo intro.
+    /// </summary>
+    public bool IsInIntroMode()
+    {
+        return isInIntroMode;
     }
 
     public void IncreaseHighMeter(int amount)

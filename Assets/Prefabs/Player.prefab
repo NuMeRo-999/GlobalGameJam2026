@@ -191,9 +191,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &7269825497741995236
 MonoBehaviour:
@@ -286,8 +286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VisionController
   hasMask: 0
-  NormalTilemap: {fileID: 0}
-  HighTilemap: {fileID: 0}
 --- !u!95 &5038912673672839593
 Animator:
   serializedVersion: 7

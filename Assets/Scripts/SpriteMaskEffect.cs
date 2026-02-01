@@ -12,15 +12,20 @@ public class SpriteMaskEffect : MonoBehaviour
     [SerializeField] private float disableDelay = 5f;
     private Vector3 initialScale;
     private VisionController visionController;
-    
+
     private bool isHoldingKey = false;
+    private bool isIntroMode = false;
     private Coroutine currentScaleCoroutine;
+
+    void Awake()
+    {
+        visionController = GetComponent<VisionController>();
+    }
 
     void Start()
     {
         initialScale = spriteMask.transform.localScale;
         spriteMask.SetActive(false);
-        visionController = GetComponent<VisionController>();
     }
 
     public void StartMaskEffect()
@@ -28,8 +33,31 @@ public class SpriteMaskEffect : MonoBehaviour
         spriteMask.SetActive(true);
         visionController.hasMask = true;
         spriteMask.transform.localScale = initialScale;
+        isHoldingKey = true;
         StopCurrentScaleCoroutine();
         currentScaleCoroutine = StartCoroutine(ScaleMaskUp(maxScale));
+    }
+
+    /// <summary>
+    /// Inicia el efecto de máscara para la intro (escala inmediata al máximo)
+    /// </summary>
+    public void StartIntroMaskEffect()
+    {
+        isIntroMode = true;
+        spriteMask.SetActive(true);
+        visionController.hasMask = true;
+        spriteMask.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
+    }
+
+    /// <summary>
+    /// Detiene el efecto de máscara de la intro
+    /// </summary>
+    public void StopIntroMaskEffect()
+    {
+        isIntroMode = false;
+        spriteMask.transform.localScale = initialScale;
+        spriteMask.SetActive(false);
+        visionController.hasMask = false;
     }
 
     public void StopMaskEffect()
@@ -75,7 +103,7 @@ public class SpriteMaskEffect : MonoBehaviour
         {
             spriteMask.transform.localScale = targetScale;
         }
-        
+
         currentScaleCoroutine = null;
     }
 
@@ -105,7 +133,7 @@ public class SpriteMaskEffect : MonoBehaviour
             spriteMask.SetActive(false);
             visionController.hasMask = false;
         }
-        
+
         currentScaleCoroutine = null;
     }
 
